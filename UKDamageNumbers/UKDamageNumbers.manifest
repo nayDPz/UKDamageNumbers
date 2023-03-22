@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 1466810652
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: cawassets
+      Dependencies: {}
+    Info_1:
+      Name: assets
+      Dependencies: {}

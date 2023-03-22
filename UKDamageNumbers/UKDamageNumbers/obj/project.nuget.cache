@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "JsyxoO3tyZDE+/vy+u5lHCNOJ7Prqzk8GV1Ab0FeYlG94MYl+aqKHcK7Mx4isTO4De2hufjBoqwe/bIv3BankQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\natep\\Documents\\GitHub\\UKDamageNumbers\\UKDamageNumbers\\UKDamageNumbers\\UKDamageNumbers.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\natep\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\natep\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,4 @@
+C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\obj\Debug\netstandard1.5\UKDamageNumbers.csprojAssemblyReference.cache
+C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\obj\Debug\netstandard1.5\UKDamageNumbers.AssemblyInfoInputs.cache
+C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\obj\Debug\netstandard1.5\UKDamageNumbers.AssemblyInfo.cs
+C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\obj\Debug\netstandard1.5\UKDamageNumbers.csproj.CoreCompileInputs.cache

@@ -1,0 +1,47 @@
+ManifestFileVersion: 0
+CRC: 158354167
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6d5aeb954d2a5865af8de5090ddc8266
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 4b3abb9d5ae44f124b798c093f4c8ef6
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/DamageNumbers/New Project (21).png
+- Assets/DamageNumbers/texDamage.png
+- Assets/DamageNumbers/New Project (23).png
+- Assets/DamageNumbers/texDamageNumbers4.png
+- Assets/DamageNumbers/texDamageBorder.png
+- Assets/DamageNumbers/texDamageNumbers.png
+- Assets/DamageNumbers/DamageNumber.shader
+- Assets/DamageNumbers/New Project (25).png
+- Assets/DamageNumbers/New Project (20).png
+- Assets/DamageNumbers/texDamageNumbers (1).png
+- Assets/DamageNumbers/New Project (18).png
+- Assets/DamageNumbers/New Project (19).png
+- Assets/DamageNumbers/New Project (22).png
+- Assets/DamageNumbers/texDamageNumbers6.png
+- Assets/DamageNumbers/DamageNumberController.prefab
+- Assets/DamageNumbers/matDamageNumber.mat
+- Assets/DamageNumbers/New Project (24).png
+Dependencies: []
