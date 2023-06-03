@@ -8,7 +8,7 @@ C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\
 C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\BepInEx.Harmony.dll
 C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\BepInEx.Preloader.dll
 C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\HarmonyXInterop.dll
-C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\MMHOOK_Assembly-CSharp-nstrip.dll
+C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\MMHOOK_Assembly-CSharp.dll
 C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\Mono.Cecil.dll
 C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\Mono.Cecil.Mdb.dll
 C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\Mono.Cecil.Pdb.dll
@@ -24,6 +24,7 @@ C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\
 C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\UnityEngine.ParticleSystemModule.dll
 C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\UnityEngine.Physics2DModule.dll
 C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\UnityEngine.PhysicsModule.dll
+C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\UnityEngine.TextRenderingModule.dll
 C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\UnityEngine.UI.dll
 C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\UnityEngine.UIModule.dll
 C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\Facepunch.Steamworks.Win64.dll
@@ -53,7 +54,6 @@ C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\
 C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\UnityEngine.UnityConnectModule.dll
 C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\UnityEngine.PerformanceReportingModule.dll
 C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\UnityEngine.SharedInternalsModule.dll
-C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\UnityEngine.TextRenderingModule.dll
 C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\UnityEngine.ClothModule.dll
 C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\UnityEngine.ClusterInputModule.dll
 C:\Users\natep\Documents\GitHub\UKDamageNumbers\UKDamageNumbers\UKDamageNumbers\bin\Debug\netstandard2.0\UnityEngine.ClusterRendererModule.dll

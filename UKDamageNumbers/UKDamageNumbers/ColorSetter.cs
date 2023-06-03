@@ -18,14 +18,25 @@ namespace UKDamageNumbers
         public Slider blue;      
         public Slider alpha;
         public Slider size;
+        public Slider mult;
 
-        public Image preview;
+        public Button next;
+        public Button prev;
 
+        public RawImage preview;
+
+        public Material[] fonts;
+        public int currentFontIndex;
+
+        public bool stackDamage;
+        public int damageMultiplier;
 
         private void Start()
         {
             Color config = Config.damageNumberColor.Value;
             float configSize = Config.damageNumberSize.Value;
+            this.currentFontIndex = Config.damageNumberFont.Value;
+            this.damageMultiplier = Config.damageNumberMultiplier.Value;
 
             // BrainDef : ScriptableObject
             this.red.value = config.r;
@@ -33,8 +44,17 @@ namespace UKDamageNumbers
             this.blue.value = config.b;
             this.alpha.value = config.a;
             this.size.value = configSize;
-
+            this.mult.value = this.damageMultiplier;
             this.color = config;
+
+            next.onClick.AddListener(delegate
+            {
+                SetMaterial(currentFontIndex + 1);
+            });
+            prev.onClick.AddListener(delegate
+            {
+                SetMaterial(currentFontIndex - 1);
+            });
 
             red.onValueChanged.AddListener(SetRed);
             green.onValueChanged.AddListener(SetGreen);
@@ -43,7 +63,13 @@ namespace UKDamageNumbers
             size.onValueChanged.AddListener(SetSize);
             size.maxValue = maxSize;
 
-            preview = base.transform.Find("Image").GetComponent<Image>();
+            mult.onValueChanged.AddListener(SetMultiplier);
+            mult.maxValue = 2;
+            mult.wholeNumbers = true;
+
+            // im fuuuuuuuuuuuuuuuuuuuuuucked in the ehead
+            this.preview = base.transform.Find("Image").gameObject.AddComponent<RawImage>();
+            this.preview.raycastTarget = false;
 
             this.UpdateColor();
         }
@@ -73,14 +99,41 @@ namespace UKDamageNumbers
             sizeMultiplier = amount;
             UpdateColor();
         }
+        public void SetMultiplier(float amount)
+        {
+            int i = Mathf.FloorToInt(amount);
+            damageMultiplier = Mathf.Clamp(i, 0, 2);
+            UpdateColor();
+        }
+        public void SetStack(bool b)
+        {
+            this.stackDamage = b;
+            UpdateColor();
+        }
+        public void SetMaterial(int i)
+        {
+            if (i < 0) i = (this.fonts.Length - 1) + i;
+            if (i >= this.fonts.Length) i = i - this.fonts.Length;
+
+            currentFontIndex = i;
+            UpdateColor();
+        }
 
 
         private void UpdateColor()
         {
+            Material newFont = this.fonts[currentFontIndex];
+            preview.texture = newFont.GetTexture("_FontTex");
             preview.color = this.color;
             preview.transform.localScale = Vector3.one * sizeMultiplier;
+
+            Config.damageNumberFont.Value = this.currentFontIndex;
             Config.damageNumberSize.Value = this.sizeMultiplier;
             Config.damageNumberColor.Value = this.color;
+            Config.damageNumberMultiplier.Value = this.damageMultiplier;
+            Config.damageNumberStack.Value = this.stackDamage;
+
+            DamageNumberManager.GetInstance().SetMaterial(newFont);
         }
     }
 }

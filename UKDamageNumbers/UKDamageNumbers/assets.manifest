@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 158354167
+CRC: 242066973
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6d5aeb954d2a5865af8de5090ddc8266
+    Hash: b27933040ac8637ec838aff485365605
   TypeTreeHash:
     serializedVersion: 2
     Hash: 4b3abb9d5ae44f124b798c093f4c8ef6
@@ -27,21 +27,20 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/DamageNumbers/New Project (21).png
-- Assets/DamageNumbers/texDamage.png
-- Assets/DamageNumbers/New Project (23).png
-- Assets/DamageNumbers/texDamageNumbers4.png
+- Assets/DamageNumbers/texTF2.png
+- Assets/DamageNumbers/matTF2Border.mat
 - Assets/DamageNumbers/texDamageBorder.png
 - Assets/DamageNumbers/texDamageNumbers.png
 - Assets/DamageNumbers/DamageNumber.shader
-- Assets/DamageNumbers/New Project (25).png
-- Assets/DamageNumbers/New Project (20).png
-- Assets/DamageNumbers/texDamageNumbers (1).png
-- Assets/DamageNumbers/New Project (18).png
-- Assets/DamageNumbers/New Project (19).png
-- Assets/DamageNumbers/New Project (22).png
-- Assets/DamageNumbers/texDamageNumbers6.png
+- Assets/DamageNumbers/matDamageThick.mat
+- Assets/DamageNumbers/matDamage.mat
+- Assets/DamageNumbers/matROR2.mat
+- Assets/DamageNumbers/texTF2Thick.png
+- Assets/DamageNumbers/texROR2.png
+- Assets/DamageNumbers/Bloodsplatter_White.png
+- Assets/DamageNumbers/texTF2Border.png
 - Assets/DamageNumbers/DamageNumberController.prefab
-- Assets/DamageNumbers/matDamageNumber.mat
-- Assets/DamageNumbers/New Project (24).png
+- Assets/DamageNumbers/matTF2.mat
+- Assets/DamageNumbers/texDamageThick.png
+- Assets/DamageNumbers/matTF2Thick.mat
 Dependencies: []

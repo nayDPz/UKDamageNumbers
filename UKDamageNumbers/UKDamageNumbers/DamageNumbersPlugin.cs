@@ -5,6 +5,7 @@ using ULTRAKILL;
 using System.Reflection;
 using System.IO;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 namespace UKDamageNumbers
 {
@@ -38,12 +39,27 @@ namespace UKDamageNumbers
             AssetBundle gameAssetBundle1 = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, "Magenta/Bundles/bundle-1"));
 
             gameFont = gameAssetBundle0.LoadAsset<Font>("VCR_OSD_MONO_1.001");
-           
+
+
+
+            ///////////////////////////////////////////////////////
+            // THEY HARDCODED THE FUCKING ///////////////////////////////////////////////////////////////!!!!!!!!!!!!!!!!!!!
+            //////// BLOOD COLORS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            /////////////////////
+            ///
+            /////////////////////////////////////////
+            //Material bloodstain = gameAssetBundle0.LoadAsset<Material>("Bloodstain_Sprite");
+            //Texture bloo = Assets.LoadAsset<Texture>("Bloodsplatter_White");
+            //Texture2D blood = (Texture2D)bloo;
+            //bloodstain.SetTexture("_SplatterAtlas", blood);
+            //Log.LogInfo(bloodstain.GetTexture("_SplatterAtlas"));
+            //GameObject bcm = new GameObject("BloodColorController");
+            //bcm.AddComponent<BloodColorManager>().bloodSprite = blood;
+            //DontDestroyOnLoad(bcm);
+
+            #region Damage Number Shop UI
             GameObject shop = gameAssetBundle1.LoadAsset<GameObject>("Shop");
-
-
             GameObject color = shop.transform.Find("Canvas/Weapons/RevolverWindow/Color Screen/Standard/Custom/Unlocked/Color 1").gameObject;
-
 
             // just to avoid a harmless error
             color.GetComponent<GunColorSetter>().enabled = false;
@@ -53,18 +69,54 @@ namespace UKDamageNumbers
 
             color.GetComponent<GunColorSetter>().enabled = true;
 
-            colorPanel.AddComponent<ColorSetter>();
+            ColorSetter colorSetter = colorPanel.AddComponent<ColorSetter>();
+            Material[] fonts = new Material[]
+            {
+                Assets.LoadAsset<Material>("matDamage"),
+                Assets.LoadAsset<Material>("matDamageThick"),
+                Assets.LoadAsset<Material>("matROR2"),
+                Assets.LoadAsset<Material>("matTF2"),
+                Assets.LoadAsset<Material>("matTF2Border"),
+                Assets.LoadAsset<Material>("matTF2Thick"),
+
+            };
+            colorSetter.fonts = fonts;
 
             colorPanel.name = "UKDamageNumbersColorPanel";
 
             Image im = colorPanel.GetComponent<Image>();
             im.color = new Color(0, 0, 0, 0.8f);
-            im.raycastTarget = false;
 
             Destroy(colorPanel.transform.Find("MetalPreview").gameObject);
+
+            Transform image = colorPanel.transform.Find("Image");
+
+            Destroy(image.GetComponent<Image>());
+
             
 
             colorPanel.SetActive(false);
+
+
+            GameObject next = GameObject.Instantiate(shop.transform.Find("Canvas/Weapons/RevolverWindow/Variation Panel (Blue)/EquipmentStuffs/NextButton/").gameObject);
+            DestroyImmediate(next.GetComponent<ShopButton>());
+            DestroyImmediate(next.GetComponent<ControllerPointer>());
+            next.AddComponent<ControllerPointer>();
+            next.name = "NextButton";
+            next.transform.SetParent(colorPanel.transform);
+            next.transform.localPosition = new Vector3(-75f, -60f, 0f);
+            next.transform.localRotation = Quaternion.identity;
+            next.transform.localScale = new Vector3(0.5f, 0.8f, 1f);
+
+            GameObject prev = GameObject.Instantiate(next);
+            prev.name = "PrevButton";
+            prev.transform.SetParent(colorPanel.transform);
+            prev.transform.localPosition = new Vector3(-135f, -60f, 0f);
+            prev.transform.localRotation = Quaternion.identity;
+            prev.transform.localScale = new Vector3(-0.5f, 0.8f, 1f);
+
+            colorSetter.next = next.GetComponent<Button>();
+            colorSetter.prev = prev.GetComponent<Button>();
 
 
             GameObject butt = shop.transform.Find("Canvas/Main Menu/WeaponsButton").gameObject;
@@ -77,8 +129,6 @@ namespace UKDamageNumbers
             button.GetComponent<RectTransform>().offsetMax = new Vector2(-160f, 183f);
 
             Destroy(button.GetComponent<ShopButton>());
-            //ShopButton sb = button.GetComponent<ShopButton>();
-            //sb.toActivate = new GameObject[] { colorPanel };
 
             colorPanel.transform.SetParent(button.transform);
             Text text = button.transform.Find("Text").GetComponent<Text>();
@@ -86,7 +136,7 @@ namespace UKDamageNumbers
             text.font = gameFont;
             text.fontSize = 12;
 
-            colorPanel.GetComponent<RectTransform>().sizeDelta = new Vector2(300f, 100f);
+            colorPanel.GetComponent<RectTransform>().sizeDelta = new Vector2(300f, 120f);
 
             HudOpenEffect h = button.GetComponent<HudOpenEffect>();
             h.originalHeight = 1f;
@@ -105,6 +155,14 @@ namespace UKDamageNumbers
 
             sizeSlider.transform.Find("Text (1)").GetComponent<Text>().text = "S";
 
+            GameObject multSlider = GameObject.Instantiate(mslider);
+            multSlider.transform.SetParent(mslider.transform.parent);
+            multSlider.transform.localScale = Vector3.one;
+            multSlider.transform.rotation = Quaternion.identity;
+            multSlider.transform.localPosition = new Vector3(30f, -100f, 0);
+            multSlider.name = "Multiplier";
+            multSlider.transform.Find("Text (1)").GetComponent<Text>().text = "X";
+
             colorPanel.transform.SetParent(button.transform);
             colorPanel.transform.position = Vector3.zero;
             colorPanel.transform.rotation = Quaternion.identity;
@@ -115,6 +173,7 @@ namespace UKDamageNumbers
 
             DontDestroyOnLoad(button);
             button.SetActive(false);
+            #endregion
 
             gameAssetBundle0.Unload(false);
             gameAssetBundle1.Unload(false);
@@ -122,11 +181,15 @@ namespace UKDamageNumbers
             prefab = Assets.LoadAsset<GameObject>("DamageNumberController");
             prefab.AddComponent<DamageNumberManager>();
 
+
+            
+
             On.EnemyIdentifier.DeliverDamage += EnemyIdentifier_DeliverDamage;
             On.ShopZone.Start += SetupButtons;
 
         }
 
+        
         
         private void SetupButtons(On.ShopZone.orig_Start orig, ShopZone self)
         {
@@ -142,7 +205,7 @@ namespace UKDamageNumbers
             Text text = menu.transform.Find("Text").GetComponent<Text>();
             text.font = gameFont;
 
-            // im braindead and tirewd dont a@ me
+            // these values dont fucking stay set
             ColorSetter setter = menu.transform.Find("UKDamageNumbersColorPanel").GetComponent<ColorSetter>();
             setter.transform.localPosition = new Vector3(46f, -28f, 0);
             setter.red = setter.transform.Find("Red/Slider").GetComponent<Slider>();
@@ -150,6 +213,7 @@ namespace UKDamageNumbers
             setter.blue = setter.transform.Find("Blue/Slider").GetComponent<Slider>();
             setter.alpha = setter.transform.Find("Alpha/Slider").GetComponent<Slider>();
             setter.size = setter.transform.Find("Size/Slider").GetComponent<Slider>();
+            setter.mult = setter.transform.Find("Multiplier/Slider").GetComponent<Slider>();
 
             menu.GetComponent<Button>().onClick.AddListener(delegate
             {
@@ -174,7 +238,7 @@ namespace UKDamageNumbers
             float f = (!self.dead ? self.health : 0);
             float healthLost = health - f;
 
-            DamageNumberManager.GetInstance().SpawnDamageNumber(healthLost, hitPoint);
+            DamageNumberManager.GetInstance().SpawnDamageNumber(self, healthLost, hitPoint);
         }
 
 
